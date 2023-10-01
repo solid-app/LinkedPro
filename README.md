@@ -11,7 +11,7 @@ cd LinkedPro
 npm ci
 
 # Run packages
-npm run
+npm start
 
 
 
