@@ -2,15 +2,14 @@
 
 Social Network Platform based On Solid specification
 
-**_Built using React JS and Solid Client Library_**
+**_Built using React JS, Node.JS and Solid Client Library_**
 
 ## Specifications
 
 * [WebID](https://www.w3.org/2005/Incubator/webid/spec/identity/) for personal/agent identities.
 * [Web Access Control](https://solidproject.org/TR/wac)/ACL to set permissions on Web resources.
 * W3C [Linked Data Platform](http://www.w3.org/TR/ldp/) and [Solid Protocol](https://solidproject.org/TR/protocol) servers to read and write Web resources.
-* W3C [ActivityPub](https://www.w3.org/TR/activitypub/) client to read/write from/to profile's outbox.
-* W3C [Activity Streams 2.0 vocabulary](https://www.w3.org/TR/activitystreams-vocabulary) for social activities.
+* W3C [Activity Streams 2.0 vocabulary](https://www.w3.org/TR/activitystreams-vocabulary) and [ActivityPub](https://www.w3.org/TR/activitypub/) for social activities.
 * [schema.org](http://schema.org/), [VCARD](https://www.w3.org/TR/vcard-rdf/), [FOAF](http://xmlns.com/foaf/0.1/),  and various other vocabularies.
 
 ## Features and Fuctionality
@@ -39,6 +38,7 @@ Social Network Platform based On Solid specification
 -   Distributed Reasoning for Recommendation
 -   etc.
 
+## Run the Apps
 
 ```text
 # Clone your work repository, for example:
@@ -52,4 +52,8 @@ npm ci
 npm start
 
 ```
+## Credit
+Thanks to [Akasi](https://github.com/AKASI1) for providing a nice template and @Rieyota for Testing support
+
+
 
