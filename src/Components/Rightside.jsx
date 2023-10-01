@@ -79,9 +79,6 @@ const Rightside = (props) => {
           <img src="/Images/right-icon.svg" alt="" />
         </Recommendation>
       </FollowCard>
-      <BannerCard>
-        <img src="/Images/ads.png" alt="" />
-      </BannerCard>
     </Container>
   );
 };
