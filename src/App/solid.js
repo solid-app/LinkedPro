@@ -138,6 +138,7 @@ let myFollow;
         myFollow,
         { fetch: fetch }
       );
+      alert("You are now following "+targetWebId);
       window.location.reload();
     } catch (error) {
       console.log(error);
@@ -292,7 +293,7 @@ export async function getPosting(webId) {
   arrWebId.push(webId);
    
   let arr = [];
-  for(let n=0;n < arrWebId.length;n++){
+  for(let n= arrWebId.length-1;n>=0;n--){
   const mypods = await getPodUrlAll(arrWebId[n], { fetch: fetch });
   
    const myPostsUrl = mypods[0] + "public/posts";
