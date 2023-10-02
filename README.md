@@ -1,6 +1,6 @@
 # LinkedPro
 
-Social Network Platform based On [Solid (Social Linked Data)](https://solidproject.org/) specification. The key difference between another existing social networks platform is it does not collect your data (even a single piece of your data). Instead, any data you have created (posts, comments, likes, follows, etc) are yours, and they are store in your own POD. This means,
+A social network platform based On [Solid (Social Linked Data)](https://solidproject.org/) specification. The key difference between another existing social networks platform is it does not collect your data (even a single piece of your data). Instead, any data you have created (posts, comments, likes, follows, etc) are yours, and they are store in your own POD. This means,
 * *you create a post, this post is stored in your "post" dataset*.
 * *you make a comment of a post, this comment is stored in your "comment" dataset*.
 * *you make a like to a post, this like is yours and stored in your "like" dataset*.
