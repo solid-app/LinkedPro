@@ -9,6 +9,8 @@ A social network platform based On [Solid (Social Linked Data)](https://solidpro
 
 **_Built using React JS, Node.JS and Solid Client Library_**
 
+[![LinkedPro](https://raw.githubusercontent.com/kabulkurniawan/LinkedPro/main/build/Images/linked-pro-youtube-preview.jpg)](https://youtu.be/6rRXAcaWLpA)
+
 ## Specifications
 
 * [WebID](https://www.w3.org/2005/Incubator/webid/spec/identity/) for personal/agent identities.

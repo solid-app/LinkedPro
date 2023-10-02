@@ -163,10 +163,10 @@ showProfile();
                     alt="likes"
                   />
                 )}
-                <span>{post.like}</span>
+                <span>{post.like ? post.like : ""}</span>
               </li>
                 <li onClick={() => setShowComments((prev) => [...prev, id])}>
-                  <p>{post.comment ? post.comment.length : 0} comments</p> 
+                  <p>{post.comment.length ? post.comment.length+" comments" : ""} </p> 
                 </li>
               </SocialContents>
               <SocialActions>

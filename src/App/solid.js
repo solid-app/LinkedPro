@@ -50,7 +50,7 @@ export async function getPostLike(postSubject) {
 
 
  export async function deletePost(postUrl){
-  console.log(postUrl);
+  //console.log(postUrl);
   let session = getDefaultSession();
   let myWebId = session.info.webId;
   const mypods = await getPodUrlAll(myWebId, { fetch: fetch });
@@ -147,13 +147,19 @@ let myFollow;
     
 }
 
-export async function getCommentByPostID(webId, postSubject) {
+export async function getCommentByPostID(pwebId, postSubject) {
 
-  let arrWebId = await getFollows();
-   arrWebId.push(webId);
+  const session = getDefaultSession();
+  const myWebId = session.info.webId;
+  let arrWebId = await getFollows(pwebId);
+  arrWebId.push(myWebId);
+  if(pwebId !== myWebId){
+    arrWebId.push(pwebId);
+  }
+   
    let arr = [];
    for(let n=0;n < arrWebId.length;n++){
-  const MyCommentUrl = await getCommentUrl(arrWebId[n]);
+    const MyCommentUrl = await getCommentUrl(arrWebId[n]);
     const myDataset = await getSolidDataset(MyCommentUrl, { fetch: fetch }  );
     let items = getThingAll(myDataset);
     
@@ -182,10 +188,16 @@ export async function getCommentByPostID(webId, postSubject) {
 
 
 
-export async function getLikeByPostID(webId, postSubject) {
+export async function getLikeByPostID(pwebId, postSubject) {
 
-  let arrWebId = await getFollows();
-   arrWebId.push(webId);
+  const session = getDefaultSession();
+  const myWebId = session.info.webId;
+  let arrWebId = await getFollows(pwebId);
+  arrWebId.push(myWebId);
+  if(pwebId !== myWebId){
+    arrWebId.push(pwebId);
+  }
+
    let countLike = 0;
    for(let n=0;n < arrWebId.length;n++){
     const MyLikeUrl = await getLikeUrl(arrWebId[n]);
@@ -267,11 +279,9 @@ export async function initialize(webId) {
     
 }
 
-export async function getFollows() {
-  let session = getDefaultSession();
-  let myWebId = session.info.webId;
-
-  const myFollowsUrl = await getFollowsUrl(myWebId);
+export async function getFollows(webId) {
+  
+  const myFollowsUrl = await getFollowsUrl(webId);
   const myDataset = await getSolidDataset(myFollowsUrl, { fetch: fetch }  );
   let items = getThingAll(myDataset);
   let arr = [];
@@ -289,11 +299,11 @@ export async function getFollows() {
 
 export async function getPosting(webId) {
   
-  let arrWebId = await getFollows();
+  let arrWebId = await getFollows(webId);
   arrWebId.push(webId);
    
   let arr = [];
-  for(let n= arrWebId.length-1;n>=0;n--){
+  for(let n=0;n < arrWebId.length; n++){
   const mypods = await getPodUrlAll(arrWebId[n], { fetch: fetch });
   
    const myPostsUrl = mypods[0] + "public/posts";

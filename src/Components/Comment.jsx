@@ -42,6 +42,7 @@ const Comment = (props) => {
               </div>
               <img src="/Images/ellipsis.svg" alt="" />
             </div>
+            
             <p>{com.desc}</p>
            </div>
         </CommentContainer> 
