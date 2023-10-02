@@ -1,14 +1,24 @@
 import styled from "styled-components";
+
 import { followByWebId,  } from "../App/solid";
 /*________________________________________________________________________________*/
 
 const Rightside = (props) => {
 
+function  followByWebIdText(){
+  const webId = document.getElementById("webId").value;
+    if(webId!=""){
+      followByWebId(webId);
+    }else{
+      alert("WebId is empty");
+    }
+  }
+
   return (
     <Container>
       <FollowCard>
         <Title>
-          <h2>People you may know</h2>
+          <h2>People you might follow</h2>
         </Title>
 
         <FeedList>
@@ -35,11 +45,28 @@ const Rightside = (props) => {
           </li>
 
         </FeedList>
+        </FollowCard>
+        <FollowCard>
+        <Title>
+          <h2>Follow people by WebId</h2>
+        </Title>
 
-        <Recommendation>
-          View all recommendations
-          <img src="/Images/right-icon.svg" alt="" />
-        </Recommendation>
+        <FeedList>
+          <li>
+            <Actor>
+              <InputContainer>
+                <input type="text" id="webId" className="reactinput" placeholder="WebId" />
+              </InputContainer>
+                <button onClick={() => followByWebIdText()}>
+                <img src="/Images/plus-icon.svg" alt="plus" />
+                Follow
+              </button>
+            </Actor>
+          </li>
+
+        </FeedList>
+
+        
         
       </FollowCard>
       <FollowCard>
@@ -85,6 +112,29 @@ const Rightside = (props) => {
 export default Rightside;
 
 /*________________________________________________________________________________*/
+const InputContainer = styled.div`
+  .reactinput {
+    border-radius: 21px;
+    border-color: rgb(234, 234, 234);
+    font-size: 15px;
+    font-family: sans-serif;
+    font-weight: 400;
+    max-height: 100px;
+    min-height: 20px;
+    outline: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    z-index: 1;
+    width: 100%;
+    user-select: text;
+    padding: 9px 12px 11px;
+    text-align: left;
+}
+`;
+
 
 const Container = styled.div`
   grid-area: rightside;

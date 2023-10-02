@@ -39,12 +39,12 @@ export async function getPostLike(postSubject) {
   if(items.length > 0 ){
    for(let i=0;i<items.length;i++){
      const postUrl =  getUrl(items[i], AS.object);
+    //  console.log(postUrl +" "+ postSubject);
      if(postUrl === postSubject){
        ilike = true;
      }
    };
  }
- console.log(ilike);
  return ilike;
 }
 
@@ -138,7 +138,7 @@ let myFollow;
         myFollow,
         { fetch: fetch }
       );
-      alert ("You are now following "+targetWebId);
+      window.location.reload();
     } catch (error) {
       console.log(error);
       
@@ -161,7 +161,7 @@ export async function getCommentByPostID(webId, postSubject) {
       const postUrl =  getUrl(items[i], AS.inReplyTo);
       const commentActor = getUrl(items[i], AS.actor);
       const commentProfile = await getProfileByWebId(commentActor);
-
+      console.log(postUrl +" "+ postSubject);
       if(postUrl === postSubject){
         const cdate = getDatetime(items[i], DCTERMS.created);
         const comment = {desc: getStringNoLocale(items[i], SCHEMA_INRUPT.description),
@@ -289,22 +289,16 @@ export async function getFollows() {
 export async function getPosting(webId) {
   
   let arrWebId = await getFollows();
-
-   arrWebId.push(webId);
+  arrWebId.push(webId);
    
-   
-   let arr = [];
-
-   for(let n=0;n < arrWebId.length;n++){
-  
+  let arr = [];
+  for(let n=0;n < arrWebId.length;n++){
   const mypods = await getPodUrlAll(arrWebId[n], { fetch: fetch });
   
    const myPostsUrl = mypods[0] + "public/posts";
   
    const myDataset = await getSolidDataset(myPostsUrl, { fetch: fetch }  );
     let items = getThingAll(myDataset)
-  
-  
    
     if(items.length > 0){
     for(let i=0;i<items.length;i++){
@@ -316,12 +310,13 @@ export async function getPosting(webId) {
       //get post comment getCommentByPostID
       const postComment = await getCommentByPostID(arrWebId[n], postUrl);
       const postLike = await getLikeByPostID(arrWebId[n], postUrl,webId);
-
+      const likeStatus = await getPostLike(postUrl);
       //put all together
       const post = {
         desc: getStringNoLocale(items[i], SCHEMA_INRUPT.description),
         date: cdate.toISOString().replace("T"," ").substring(0, 19),
         subject: postUrl,
+        islike: likeStatus,
         comment: postComment,
         like: postLike,
         profile: postProfile};
@@ -434,6 +429,7 @@ let myPost;
         myPost,
         { fetch: fetch }
       );
+      window.location.reload();
     } catch (error) {
       console.log(error);
       
@@ -477,6 +473,7 @@ let myComment;
         myComment,
         { fetch: fetch }
       );    
+      window.location.reload();
     } catch (error) {
       console.log(error);
     };
@@ -514,7 +511,7 @@ let myComment;
         myLike,
         { fetch: fetch }
       );
-  
+        window.location.reload();
     } catch (error) {
       console.log(error);
     };

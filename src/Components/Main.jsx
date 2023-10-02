@@ -10,20 +10,18 @@ import Comment from "./Comment";
 import {getStringNoLocale, getUrl} from "@inrupt/solid-client";
 
 const Main = () => {
-  const [showUser, setShowUser] = useState(false);
-  const [showModel, setShowModel] = useState(false);
-  const [showComments, setShowComments] = useState([]);
-  const [showEditPost, setShowEditPost] = useState(false);
+   const [showUser, setShowUser] = useState(false);
+   const [showModel, setShowModel] = useState(false);
+   const [showComments, setShowComments] = useState([]);
+   const [showEditPost, setShowEditPost] = useState(false);
   const [posting, setPosting] = useState([]);
-  const [profile, setProfile] = useState(false);
-  const [webId, setWebId] = useState(false);
-  const [isLoading, setIsLoading] = useState(true); 
+   const [profile, setProfile] = useState(false);
+   const [webId, setWebId] = useState(false);
+   const [isLoading, setIsLoading] = useState(true); 
 
 
   const hideModel = () => {
     setShowModel(false);
-    window.location.reload();
- 
   };
 
 const uploadPost = useCallback(
@@ -34,7 +32,6 @@ const uploadPost = useCallback(
 useEffect(() => {
   const showProfile = async () =>{
     const session = await handleRedirectAfterLogin();
-
      if(session.info.isLoggedIn){
       const webId = session.info.webId;
       setWebId(webId);
@@ -86,7 +83,6 @@ showProfile();
      
 
       <input type="hidden" id="web-id" value="" />
-
       {posting.length > 0 &&
         posting.map((post, id) => {
           return (
@@ -163,7 +159,7 @@ showProfile();
               <SocialActions>
                 <button
                 className={
-                  getPostLike(post.subject) ? "active" : ""
+                  (post.islike) ? "active" : ""
                 }
                 onClick={(e) => {
                   fetchLikes(webId, post.subject);
