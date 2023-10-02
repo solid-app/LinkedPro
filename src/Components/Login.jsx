@@ -54,7 +54,7 @@ const Login = () => {
 
       <Section>
         <Hero>
-          <h1>Welcome to our desentralized social network</h1>
+          <h1>Welcome to our decentralized social network</h1>
           {/* <img src="/Images/hero.svg" alt="hero" /> */}
         </Hero>
         <Form>

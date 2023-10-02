@@ -30,9 +30,8 @@ Click this image to watch LinkedPro in Youtube:
 -   Create a new post
 -   Create a comment in a post
 -   Follow a user (via WebId)
--   Share photos and videos (React player for videos)
+-   Share videos (React player for videos)
 -   Like posts
--   Delete Posts
 -   Agregate all Posts from followed users
 -   Auto authenticate user on refresh
 -   Sign Out
@@ -41,6 +40,8 @@ Click this image to watch LinkedPro in Youtube:
 
 -   Modify a Post
 -   Modify a Comment
+-   Delete Posts
+-   Delete Comment
 -   Modify Profile (Photos, biography)
 -   Repost/Reshare a Post
 -   Add Notifications
