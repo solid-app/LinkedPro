@@ -8,6 +8,7 @@ import Profile from "./Profile";
 import PostModel from "./PostModel";
 import Comment from "./Comment";
 import {getStringNoLocale, getUrl} from "@inrupt/solid-client";
+import ReactPlayer from "react-player";
 
 const Main = () => {
    const [showUser, setShowUser] = useState(false);
@@ -19,6 +20,18 @@ const Main = () => {
    const [webId, setWebId] = useState(false);
    const [isLoading, setIsLoading] = useState(true); 
 
+
+
+   const isUrlExist = (giventText) => {
+    
+    let ma = giventText.match(/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi)
+    //console.log(giventText +" "+ma);
+    if (ma!=null && ma.length > 0) {
+      return true;
+    }else{
+      return false;
+    }  
+  }
 
   const hideModel = () => {
     setShowModel(false);
@@ -133,14 +146,14 @@ showProfile();
               </Actor>
               <Description>{post.desc}</Description>
               <SharedImg>
-                {/* {post.sharedImage && <img src={post.sharedImage} alt="postIMG" />}
-            {post.sharedVedio && (
+                
+            {isUrlExist(post.desc) && (
               <ReactPlayer
-                url={post.sharedVedio}
+                url={post.desc}
                 width={"100%"}
                 controls={true}
               />
-            )} */}
+            )}
               </SharedImg>
               <SocialContents>
               <li>

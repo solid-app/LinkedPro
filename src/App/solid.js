@@ -161,7 +161,7 @@ export async function getCommentByPostID(webId, postSubject) {
       const postUrl =  getUrl(items[i], AS.inReplyTo);
       const commentActor = getUrl(items[i], AS.actor);
       const commentProfile = await getProfileByWebId(commentActor);
-      console.log(postUrl +" "+ postSubject);
+      //console.log(postUrl +" "+ postSubject);
       if(postUrl === postSubject){
         const cdate = getDatetime(items[i], DCTERMS.created);
         const comment = {desc: getStringNoLocale(items[i], SCHEMA_INRUPT.description),
