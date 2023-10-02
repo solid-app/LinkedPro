@@ -9,6 +9,9 @@ A social network platform based On [Solid (Social Linked Data)](https://solidpro
 
 **_Built using React JS, Node.JS and Solid Client Library_**
 
+## LinkedPro at a glance (Youtube Video)
+
+Click this image to watch Linked Pro in youtube:
 [![LinkedPro](https://img.youtube.com/vi/6rRXAcaWLpA/0.jpg)](https://www.youtube.com/watch?v=6rRXAcaWLpA)
 
 ## Specifications
